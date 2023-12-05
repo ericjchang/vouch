@@ -1,26 +1,28 @@
 const express = require('express');
 const cors = require('cors');
+const morgan = require('morgan');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose');
+const socket = require('./config/socket');
+const db = require('./config/db');
+const routers = require('./routers');
 
 const app = express();
+app.use(cors());
+
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const PORT = process.env.PORT;
-const MONGODB_URI = process.env.MONGODB_URI;
 
-app.use(cors());
+if (process.env.NODE_ENV === 'dev') {
+  app.use(morgan('dev'));
+}
+
 app.use(express.json());
+app.use(routers);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`🤖 : Server running in http://localhost:${PORT}`);
 });
 
-mongoose
-  .connect(MONGODB_URI)
-  .then(() => {
-    console.log('🤖 : DB connected successfully');
-  })
-  .catch(err => {
-    console.log(err.message);
-  });
+db();
+socket(server);
