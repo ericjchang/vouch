@@ -12,7 +12,7 @@
 
 - Clone the repository to your local machine.
 - Navigate to the "server" directory.
-- Install the dependencies by running npm install.
+- Install the dependencies by running `npm install`.
 - Create a `.env.dev` file and add the following environment variables:
 
 ```
@@ -30,7 +30,7 @@ MONGODB_URI=mongodb://localhost:27017/chat-dev
 
 - Open new terminal.
 - Navigate to the "client" directory.
-- Install the dependencies by running npm install.
+- Install the dependencies by running `npm install`.
 - Create a `.env` file and add the following environment variables:
 
 ```
@@ -41,6 +41,8 @@ REACT_APP_API_URL=
 #Example :
 REACT_APP_API_URL="http://localhost:5555"
 ```
+
+    Run the server by running npm run start.
 
 <h2>Time Spent</h2>
 
