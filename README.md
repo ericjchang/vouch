@@ -2,6 +2,10 @@
 
 ---
 
+<h2>Demo</h2>
+
+![](https://raw.githubusercontent.com/ericjchang/vouch/master/demo.gif)
+
 <h2>Date of Submission</h2>
 
 ```
